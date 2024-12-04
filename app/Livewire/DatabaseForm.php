@@ -13,7 +13,7 @@ class DatabaseForm extends Component
     public $db_name = '';
     public $db_port = 3306;
 
-    // Define validation rules
+
     protected $rules = [
         'db_host' => 'required',
         'db_username' => 'required',
@@ -31,7 +31,14 @@ class DatabaseForm extends Component
     {
         $this->validate();
 
-        Config::set('app.install.step', 2);
+
+        config(["database.connections.mysql.database" => $this->db_name]);
+        config(["database.connections.mysql.host"=> $this->db_host]);
+        config(["database.connections.mysql.port"=> $this->db_port]);
+        config(["database.connections.mysql.username"=> $this->db_username]);
+        config(["database.connections.mysql.password"=> $this->db_password]);
+
+        Config::set('nexon.installation_step', 2);
 
         session()->flash('message', 'Database details saved successfully.');
     }

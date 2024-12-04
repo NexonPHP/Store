@@ -15,7 +15,7 @@ class Installation
      */
     public function handle(Request $request, Closure $next): Response
     {
-        if(!config('app.installed', false)) {
+        if(!config('nexon.installed', false)) {
             return redirect('/install');
         }
         return $next($request);
