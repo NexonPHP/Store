@@ -10,6 +10,7 @@
     "require": {
         "php": "^8.1",
         "filament/filament": "3.2",
+        "flowframe/laravel-trend": "*",
         "guzzlehttp/guzzle": "^7.2",
         "hexadog/laravel-themes-manager": "^1.13",
         "laravel/framework": "^10.10",
