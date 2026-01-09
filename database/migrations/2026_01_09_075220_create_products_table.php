@@ -10,10 +10,14 @@ return new class extends Migration {
         Schema::create('products', function (Blueprint $table) {
             $table->id();
             $table->string('name');
-            $table->longText('description');
-            $table->float('price');
-            $table->float('discount_price');
+            $table->text('description')->nullable();
+            $table->foreignId('category_id')->nullable()->constrained('product_categories')->nullOnDelete();
+            $table->boolean('is_subscription')->default(false);
+            $table->integer('duration_days')->nullable();
+            $table->boolean('is_active')->default(true);
+            $table->string('image_url')->nullable();
             $table->timestamps();
+
         });
     }
 
