@@ -1,0 +1,15 @@
+{
+    "name": "Nexon Default",
+    "slug": "default",
+    "version": "1.0",
+    "author": "System",
+    "description": "Built-in theme",
+    "layouts": ["default"],
+    "supports": ["products", "cart", "checkout"],
+    "configurable": {
+        "primary_color": true,
+        "logo": true,
+        "font": true,
+        "hero_text": true
+    }
+}
