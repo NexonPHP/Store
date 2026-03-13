@@ -4,7 +4,6 @@ namespace Database\Factories;
 
 use App\Models\ProductCategory;
 use Illuminate\Database\Eloquent\Factories\Factory;
-use Illuminate\Support\Carbon;
 
 class ProductCategoryFactory extends Factory
 {
@@ -13,11 +12,9 @@ class ProductCategoryFactory extends Factory
     public function definition()
     {
         return [
-            'name' => $this->faker->sentence(),
+            'name' => $this->faker->words(2, true),
             'slug' => $this->faker->slug(),
-            'parent_id' => $this->faker->boolean(100) ? ProductCategory::inRandomOrder()->value('id') : null,
-            'created_at' => Carbon::now(),
-            'updated_at' => Carbon::now(),
+            'parent_id' => ProductCategory::query()->inRandomOrder()->value('id'),
         ];
     }
 }

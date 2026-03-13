@@ -25,5 +25,6 @@ class DatabaseSeeder extends Seeder
         );
 
         $this->call(ThemeSeeder::class);
+        $this->call(ProductSeeder::class);
     }
 }

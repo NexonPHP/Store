@@ -10,9 +10,9 @@ class Product extends Model
 {
     use HasFactory;
 
-    protected $fillable = ['name', 'description', 'category_id', 'is_subscription', 'duration_days', 'is_active', 'image_url'];
+    protected $fillable = ['name', 'slug', 'description', 'category_id', 'is_subscription', 'duration_days', 'is_active', 'image_url'];
 
-    public function category()
+    public function category(): \Illuminate\Database\Eloquent\Relations\BelongsTo
     {
 
         return $this->belongsTo(ProductCategory::class, 'category_id');

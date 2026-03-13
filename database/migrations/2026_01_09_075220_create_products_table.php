@@ -11,6 +11,7 @@ return new class extends Migration {
             $table->id();
             $table->string('name');
             $table->text('description')->nullable();
+            $table->text('slug')->unique();
             $table->foreignId('category_id')->nullable()->constrained('product_categories')->nullOnDelete();
             $table->boolean('is_subscription')->default(false);
             $table->integer('duration_days')->nullable();

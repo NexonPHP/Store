@@ -15,19 +15,16 @@ class ThemeManager
     public function active(): ?Theme
     {
         if (!Schema::hasTable('themes')) {
-            exit('No theme table');
             return null;
         }
 
         $theme = Theme::where('is_active', 1)->first();
 
         if (!$theme) {
-            exit('No active theme found');
             return null;
         }
 
         if (!File::exists(config('themes.path') . $theme->path)) {
-            exit('No theme path');
             return null;
         }
 

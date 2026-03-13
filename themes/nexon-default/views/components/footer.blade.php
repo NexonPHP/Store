@@ -1,0 +1,3 @@
+<flux:footer>
+
+</flux:footer>
